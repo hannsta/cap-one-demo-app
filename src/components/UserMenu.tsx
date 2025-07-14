@@ -1,24 +1,22 @@
 import { useState, useRef, useEffect } from 'react';
 import { useUser } from './UserContext';
 
-const USER_TYPES = ['Employee', 'Manager', 'Director', 'Admin'];
-
 export default function UserMenu() {
   const [open, setOpen] = useState(false);
   const [showSwitchUser, setShowSwitchUser] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
-  const { currentUser, userType, setUserType } = useUser();
+  const { currentUser } = useUser();
 
   const toggleMenu = () => setOpen(!open);
-
-  const handleRoleSelect = (role: string) => {
-    setUserType(role as any);
-    setOpen(false);
-  };
 
   const handleSwitchUser = () => {
     setOpen(false);
     setShowSwitchUser(true);
+  };
+
+  const handleProfileSettings = () => {
+    setOpen(false);
+    console.log('Profile settings clicked');
   };
 
   useEffect(() => {
@@ -40,7 +38,7 @@ export default function UserMenu() {
       <div className="relative flex items-center gap-3" ref={menuRef}>
         <div className="text-right">
           <p className="text-sm font-medium text-gray-900">{currentUser.name}</p>
-          <p className="text-xs text-gray-600">{userType || currentUser.role}</p>
+          <p className="text-xs text-gray-600">{currentUser.role}</p>
         </div>
         <button
           onClick={toggleMenu}
@@ -50,7 +48,7 @@ export default function UserMenu() {
         </button>
 
         {open && (
-          <div className="absolute right-0 mt-2 w-48 bg-white border border-gray-200 rounded-lg shadow-lg z-20">
+          <div className="absolute right-0 w-48 bg-white border border-gray-200 rounded-lg shadow-lg z-20" style={{ top: '60px' }}>
             <div className="p-3 border-b border-gray-200">
               <p className="text-sm font-medium text-gray-900">{currentUser.name}</p>
               <p className="text-xs text-gray-600">{currentUser.email}</p>
@@ -58,21 +56,10 @@ export default function UserMenu() {
               <p className="text-xs text-gray-600">{currentUser.department}</p>
             </div>
             <div className="py-1">
-              <p className="px-3 py-2 text-xs font-medium text-gray-500 uppercase">Switch Role</p>
-              {USER_TYPES.map((type) => (
-                <button
-                  key={type}
-                  onClick={() => handleRoleSelect(type)}
-                  className={`block w-full text-left px-3 py-2 text-sm hover:bg-gray-100 transition-colors ${
-                    userType === type ? 'bg-red-50 text-red-700 font-medium' : 'text-gray-700'
-                  }`}
-                >
-                  {type}
-                </button>
-              ))}
-            </div>
-            <div className="border-t border-gray-200 py-1">
-              <button className="block w-full text-left px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors">
+              <button 
+                onClick={handleProfileSettings}
+                className="block w-full text-left px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors"
+              >
                 Profile Settings
               </button>
               <button 
