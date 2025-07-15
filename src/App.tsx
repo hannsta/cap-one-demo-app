@@ -2,7 +2,6 @@ import { BrowserRouter, NavLink, Route, Routes, Link } from 'react-router-dom';
 import InputForm from './components/InputForm';
 import HomePage from './components/HomePage';
 import UserMenu from './components/UserMenu';
-
 //@ts-ignore
 import { initialize } from '@pendo/agent';
 import { UserProvider } from './components/UserContext';
