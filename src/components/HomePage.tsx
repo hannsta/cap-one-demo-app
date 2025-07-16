@@ -1,88 +1,123 @@
 // src/pages/HomePage.tsx
 import React from 'react';
-import welcomeImage from '../assets/pendo.jpg';
 import { InitPendo } from '../pendoHelper';
 
 const HomePage: React.FC = () => {
   InitPendo();
   return (
-    <div className="space-y-8">
+    <div className="space-y-6">
       {/* Welcome Section */}
-      <div className="bg-white rounded-lg shadow-md p-8">
-        <div className="flex items-center justify-between mb-6">
-          <div>
-            <h1 className="text-3xl font-bold text-gray-900 mb-2">
-              Welcome to Capital One Internal Systems
-            </h1>
-            <p className="text-gray-600 text-lg">
-              Access your tools and services from the employee portal
-            </p>
-          </div>
-          <img
-            src={welcomeImage}
-            alt="Capital One Systems"
-            className="w-32 h-32 rounded-lg shadow-md object-cover"
-          />
+      <div className="bg-white border border-gray-200 rounded-md p-6">
+        <div className="max-w-3xl">
+          <h1 className="text-2xl font-medium text-gray-900 mb-2">
+            Employee Portal Dashboard
+          </h1>
+          <p className="text-gray-600">
+            Access your workplace tools and submit service requests
+          </p>
         </div>
       </div>
 
-      {/* Quick Actions Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <div className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
-          <div className="flex items-center mb-4">
-            <div className="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center">
-              <span className="text-red-600 font-bold text-xl">HR</span>
+      {/* Key Services */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="bg-white border border-gray-200 rounded-md p-5 hover:border-gray-300 transition-colors">
+          <div className="flex items-start">
+            <div className="w-8 h-8 bg-red-50 rounded flex items-center justify-center mt-0.5">
+              <svg className="w-4 h-4 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z" />
+              </svg>
             </div>
-            <h3 className="text-lg font-semibold text-gray-900 ml-4">Human Resources</h3>
+            <div className="ml-3">
+              <h3 className="font-medium text-gray-900">Employee Services</h3>
+              <p className="text-sm text-gray-600 mt-1">HR requests, benefits, time off</p>
+            </div>
           </div>
-          <p className="text-gray-600">Access benefits, time off, and HR services</p>
         </div>
 
-        <div className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
-          <div className="flex items-center mb-4">
-            <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
-              <span className="text-blue-600 font-bold text-xl">IT</span>
+        <div className="bg-white border border-gray-200 rounded-md p-5 hover:border-gray-300 transition-colors">
+          <div className="flex items-start">
+            <div className="w-8 h-8 bg-blue-50 rounded flex items-center justify-center mt-0.5">
+              <svg className="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              </svg>
             </div>
-            <h3 className="text-lg font-semibold text-gray-900 ml-4">IT Services</h3>
+            <div className="ml-3">
+              <h3 className="font-medium text-gray-900">IT Support</h3>
+              <p className="text-sm text-gray-600 mt-1">Technical assistance, equipment requests</p>
+            </div>
           </div>
-          <p className="text-gray-600">Submit tickets, access tools, and get support</p>
         </div>
 
-        <div className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
-          <div className="flex items-center mb-4">
-            <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
-              <span className="text-green-600 font-bold text-xl">$</span>
+        <div className="bg-white border border-gray-200 rounded-md p-5 hover:border-gray-300 transition-colors">
+          <div className="flex items-start">
+            <div className="w-8 h-8 bg-green-50 rounded flex items-center justify-center mt-0.5">
+              <svg className="w-4 h-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+              </svg>
             </div>
-            <h3 className="text-lg font-semibold text-gray-900 ml-4">Financial Systems</h3>
+            <div className="ml-3">
+              <h3 className="font-medium text-gray-900">Facilities</h3>
+              <p className="text-sm text-gray-600 mt-1">Workspace needs, building services</p>
+            </div>
           </div>
-          <p className="text-gray-600">Expense reports, budget tracking, and approvals</p>
         </div>
       </div>
 
-      {/* Recent Activity */}
-      <div className="bg-white rounded-lg shadow-md p-8">
-        <h2 className="text-2xl font-bold text-gray-900 mb-6">Recent Activity</h2>
-        <div className="space-y-4">
-          <div className="flex items-center justify-between py-3 border-b border-gray-200">
-            <div>
-              <p className="font-medium text-gray-900">System Maintenance Notification</p>
-              <p className="text-sm text-gray-600">Scheduled maintenance window this weekend</p>
-            </div>
-            <span className="text-sm text-gray-500">2 hours ago</span>
+      {/* Quick Stats */}
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+        <div className="bg-white border border-gray-200 rounded-md p-4">
+          <div className="text-center">
+            <div className="text-2xl font-semibold text-gray-900">2</div>
+            <div className="text-sm text-gray-600">Pending Requests</div>
           </div>
-          <div className="flex items-center justify-between py-3 border-b border-gray-200">
-            <div>
-              <p className="font-medium text-gray-900">New Policy Update</p>
-              <p className="text-sm text-gray-600">Remote work policy has been updated</p>
-            </div>
-            <span className="text-sm text-gray-500">1 day ago</span>
+        </div>
+        <div className="bg-white border border-gray-200 rounded-md p-4">
+          <div className="text-center">
+            <div className="text-2xl font-semibold text-gray-900">7</div>
+            <div className="text-sm text-gray-600">This Month</div>
           </div>
-          <div className="flex items-center justify-between py-3">
-            <div>
-              <p className="font-medium text-gray-900">Training Reminder</p>
-              <p className="text-sm text-gray-600">Complete your quarterly security training</p>
+        </div>
+        <div className="bg-white border border-gray-200 rounded-md p-4">
+          <div className="text-center">
+            <div className="text-2xl font-semibold text-gray-900">24h</div>
+            <div className="text-sm text-gray-600">Avg Response</div>
+          </div>
+        </div>
+        <div className="bg-white border border-gray-200 rounded-md p-4">
+          <div className="text-center">
+            <div className="text-2xl font-semibold text-gray-900">96%</div>
+            <div className="text-sm text-gray-600">System Uptime</div>
+          </div>
+        </div>
+      </div>
+
+      {/* Recent Updates */}
+      <div className="bg-white border border-gray-200 rounded-md p-6">
+        <h2 className="text-lg font-medium text-gray-900 mb-4">Recent Updates</h2>
+        <div className="space-y-3">
+          <div className="flex items-start py-2">
+            <div className="w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+            <div className="flex-1">
+              <p className="text-sm font-medium text-gray-900">System maintenance completed</p>
+              <p className="text-xs text-gray-600">All services restored - no action required</p>
+              <p className="text-xs text-gray-500 mt-1">2 hours ago</p>
             </div>
-            <span className="text-sm text-gray-500">3 days ago</span>
+          </div>
+          <div className="flex items-start py-2">
+            <div className="w-2 h-2 bg-green-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+            <div className="flex-1">
+              <p className="text-sm font-medium text-gray-900">New employee onboarding resources</p>
+              <p className="text-xs text-gray-600">Updated guides available in Company Resources</p>
+              <p className="text-xs text-gray-500 mt-1">1 day ago</p>
+            </div>
+          </div>
+          <div className="flex items-start py-2">
+            <div className="w-2 h-2 bg-yellow-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+            <div className="flex-1">
+              <p className="text-sm font-medium text-gray-900">Security awareness training reminder</p>
+              <p className="text-xs text-gray-600">Complete by end of month - 15 minutes required</p>
+              <p className="text-xs text-gray-500 mt-1">3 days ago</p>
+            </div>
           </div>
         </div>
       </div>
